@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Task 2</title>
+        <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+        <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+        <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+        <style>
+            * {
+                font-family: Verdana, Geneva, Tahoma, sans-serif;
+            }
+            body {
+                background-color: #e6cce0;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="main"></div>
+        <script type="text/babel">
+            let titleStyle = {
+                textTransform: "uppercase",
+                color: "#6594B1",
+                fontSize: "70px",
+                display: "flex",
+                marginBottom: "50px",
+                justifyContent: "center",
+            };
+            let subTitleStyle = {
+                textTransform: "uppercase",
+                color: "#6594B1",
+                fontSize: "40px",
+                display: "flex",
+                marginBottom: "50px",
+                justifyContent: "center",
+            };
+            let imgStyle = {
+                width: "400px",
+                borderRadius: "20px",
+            };
+            let galleryStyle = {
+                display: "flex",
+                flexDirection: "row",
+                gap: "20px",
+                flexWrap: "wrap",
+                justifyContent: "center",
+            };
+            let cardStyle = {
+                border: "4px solid #213C51",
+                padding: "20px",
+                borderRadius: "20px",
+                width: "400px",
+                fontSize: "20px",
+                backgroundColor: "#6594B1",
+                color: "#EEEEEE",
+            };
+            let groupInfo = {
+                name: "Arctic Monkeys",
+                members: [
+                    {
+                        imgLink:
+                            "https://cdn1.faroutmagazine.co.uk/uploads/1/2023/06/Arctic-Monkeys-London-Emirates-Stadium-June-2023-Alex-Turner-05-Raph-PH-Far-Out-Magazine.jpg",
+                        fullName: "Alex Turner",
+                        shortInfo:
+                            "Lead vocalist, guitarist, and primary songwriter. Known for his distinctive voice and sharp, poetic lyrics; the main creative force behind the band.",
+                    },
+                    {
+                        imgLink:
+                            "https://preview.redd.it/the-minimalism-of-jamie-cook-v0-7jecdj02i2ke1.jpeg?auto=webp&s=805cd31c2ef691fb7c20bcf49f1fb9e547f94d0c",
+                        fullName: "Jamie Cook",
+                        shortInfo: "Lead guitarist. Co-founded the band with Alex Turner and provides the signature riffs and guitar textures.",
+                    },
+                    {
+                        imgLink: "https://i.redd.it/1kzrifm0dhna1.jpg",
+                        fullName: "Nick O’Malley",
+                        shortInfo:
+                            "Bassist and backing vocalist. Joined in 2006, replacing original bassist Andy Nicholson; adds harmonies and a steady rhythmic base.",
+                    },
+                    {
+                        imgLink: "https://images.radiox.co.uk/images/649844?width=2500&crop=4_3&signature=f13_ng4S7PtZGH4yyaPBPt45s5o=",
+                        fullName: "Matt Helders",
+                        shortInfo:
+                            "Drummer and backing vocalist. Known for energetic, powerful drumming and occasional lead vocals (notably on “Brick by Brick”).",
+                    },
+                ],
+                albums: [
+                    {
+                        imgLink: "https://upload.wikimedia.org/wikipedia/ru/7/74/Wpsiatwin.jpg",
+                        title: "Whatever People Say I Am, That’s What I’m Not",
+                        releaseDate: "23 January 2006",
+                    },
+                    {
+                        imgLink: "https://upload.wikimedia.org/wikipedia/en/a/ae/Favourite_Worst_Nightmare.jpg",
+                        title: "Favourite Worst Nightmare",
+                        releaseDate: "23 April 2007",
+                    },
+                    {
+                        imgLink: "https://upload.wikimedia.org/wikipedia/ru/f/f7/Arctic_Monkeys_-_Humbug.jpg",
+                        title: "Humbug",
+                        releaseDate: "19 August 2009",
+                    },
+                    {
+                        imgLink: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f9/Suckitandsee.jpg/250px-Suckitandsee.jpg",
+                        title: "Suck It and See",
+                        releaseDate: "6 June 2011",
+                    },
+                    {
+                        imgLink: "https://upload.wikimedia.org/wikipedia/ru/2/2a/Arctic_Monkeys_AM_cover.jpg",
+                        title: "AM",
+                        releaseDate: "9 September 2013",
+                    },
+                    {
+                        imgLink: "https://upload.wikimedia.org/wikipedia/uk/6/6d/Arctic_Monkeys_-_Tranquility_Base_Hotel_%26_Casino.jpg",
+                        title: "Tranquility Base Hotel & Casino",
+                        releaseDate: "11 May 2018",
+                    },
+                    {
+                        imgLink: "https://media.pitchfork.com/photos/63061cdbc3194266963384da/master/pass/Arctic-Monkeys-The-Car.jpg",
+                        title: "The Car",
+                        releaseDate: "21 October 2022",
+                    },
+                ],
+            };
+            const div = document.getElementById("main");
+            const root = ReactDOM.createRoot(div);
+
+            root.render(
+                <div>
+                    <h1 style={titleStyle}>{groupInfo.name}</h1>
+                    <h2 style={subTitleStyle}>Members</h2>
+                    <div style={galleryStyle}>
+                        {Object.values(groupInfo.members).map((member, index) => (
+                            <div style={cardStyle}>
+                                <img src={member.imgLink} alt={member.name} style={imgStyle} />
+                                <h3>{member.fullName}</h3>
+                                <p>{member.shortInfo}</p>
+                            </div>
+                        ))}
+                    </div>
+                    <h2 style={subTitleStyle}>Albums</h2>
+                    <div style={galleryStyle}>
+                        {Object.values(groupInfo.albums).map((album, index) => (
+                            <div style={cardStyle}>
+                                <img src={album.imgLink} alt={album.name} style={imgStyle} />
+                                <h3>{album.title}</h3>
+                                <p>{album.releaseDate}</p>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+            );
+        </script>
+    </body>
+</html>

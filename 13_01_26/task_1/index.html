@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Task 1</title>
+        <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+        <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+        <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+        <style>
+            body {
+                background-color: #d1a677;
+            }
+        </style>
+    </head>
+
+    <body>
+        <div id="main"></div>
+        <script type="text/babel">
+            let divStyle = {
+                margin: "auto",
+                width: "90%",
+                border: "5px solid #4d2e05",
+                textAlign: "center",
+                padding: "20px",
+                borderRadius: "20px",
+                display: "flex",
+                flexDirection: "column",
+                gap: "20px",
+                alignItems: "center",
+                fontSize: "30px",
+                color: "#4d2e05",
+            };
+            let galleryStyle = {
+                display: "flex",
+                flexDirection: "row",
+                gap: "20px",
+            };
+            let imgStyle = {
+                width: "400px",
+                objectFit: "cover",
+                borderRadius: "20px",
+            };
+            let reviewStyle = {
+                fontStyle: "italic",
+                fontWeight: "bold",
+            };
+            const div = document.getElementById("main");
+            const root = ReactDOM.createRoot(main);
+            let bookInfo = {
+                imgLinks: {
+                    link1: "https://static.yakaboo.ua/media/cloudflare/product/webp/600x840/i/m/img243_1_21.jpg",
+                    link2: "https://m.media-amazon.com/images/I/81Ua99CURsL._AC_UF894,1000_QL80_.jpg",
+                    link3: "https://cdn4.volusion.store/zjhys-xrwrf/v/vspfiles/photos/9780593099322-2.jpg",
+                },
+                name: "Dune",
+                author: "Frank Herbert",
+                genre: "Science fiction",
+                pagesCount: "412",
+                reviews: {
+                    review1:
+                        "Dune is widely considered one of the greatest science-fiction novels ever written, praised for its richly detailed universe and blend of politics, ecology, religion, and power struggles.",
+                    review2: "This review gives Dune a four-star rating while acknowledging its flaws.",
+                    review3: "This recent review highlights Dune’s timeless and prescient themes, especially its political and ecological relevance.",
+                },
+            };
+
+            root.render(
+                <div style={divStyle}>
+                    <div style={galleryStyle}>
+                        <img src={bookInfo.imgLinks.link1} alt="Book Img" style={imgStyle} />
+                        <img src={bookInfo.imgLinks.link2} alt="Book Img" style={imgStyle} />
+                        <img src={bookInfo.imgLinks.link3} alt="Book Img" style={imgStyle} />
+                    </div>
+                    <h2>Name: {bookInfo.name}</h2>
+                    <p>Author: {bookInfo.author}</p>
+                    <p>Genre: {bookInfo.genre}</p>
+                    <p>Pages count: {bookInfo.pagesCount}</p>
+                    <div>
+                        <p style={reviewStyle}>{bookInfo.reviews.review1}</p>
+                        <p style={reviewStyle}>{bookInfo.reviews.review2}</p>
+                        <p style={reviewStyle}>{bookInfo.reviews.review3}</p>
+                    </div>
+                </div>
+            );
+        </script>
+    </body>
+</html>
