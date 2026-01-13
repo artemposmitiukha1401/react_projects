@@ -130,7 +130,7 @@
                     <h1 style={titleStyle}>{groupInfo.name}</h1>
                     <h2 style={subTitleStyle}>Members</h2>
                     <div style={galleryStyle}>
-                        {Object.values(groupInfo.members).map((member, index) => (
+                        {groupInfo.members.map((member, index) => (
                             <div style={cardStyle}>
                                 <img src={member.imgLink} alt={member.name} style={imgStyle} />
                                 <h3>{member.fullName}</h3>
@@ -140,7 +140,7 @@
                     </div>
                     <h2 style={subTitleStyle}>Albums</h2>
                     <div style={galleryStyle}>
-                        {Object.values(groupInfo.albums).map((album, index) => (
+                        {groupInfo.albums.map((album, index) => (
                             <div style={cardStyle}>
                                 <img src={album.imgLink} alt={album.name} style={imgStyle} />
                                 <h3>{album.title}</h3>
