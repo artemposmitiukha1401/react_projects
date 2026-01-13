@@ -132,7 +132,7 @@
                     <div style={galleryStyle}>
                         {groupInfo.members.map((member, index) => (
                             <div style={cardStyle}>
-                                <img src={member.imgLink} alt={member.name} style={imgStyle} />
+                                <img src={member.imgLink} alt={member.fullName} style={imgStyle} />
                                 <h3>{member.fullName}</h3>
                                 <p>{member.shortInfo}</p>
                             </div>
@@ -142,7 +142,7 @@
                     <div style={galleryStyle}>
                         {groupInfo.albums.map((album, index) => (
                             <div style={cardStyle}>
-                                <img src={album.imgLink} alt={album.name} style={imgStyle} />
+                                <img src={album.imgLink} alt={album.title} style={imgStyle} />
                                 <h3>{album.title}</h3>
                                 <p>{album.releaseDate}</p>
                             </div>
